@@ -3,7 +3,7 @@ const cors = require('cors')
 const { blogRouter } = require('./routes/blog.js')
 const { userRouter } = require('./routes/user.js')
 
-const port = 3001
+const port = 5500
 const app = express()
 app.use(cors())
 app.use(express.json())
