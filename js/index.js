@@ -1,5 +1,5 @@
 import { Posts } from './class/Posts.js'
-import { User } from './class/User.js'
+import { User } from './class/user.js'
 
 const user = new User()
 const posts = new Posts()

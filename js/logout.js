@@ -1,4 +1,4 @@
-import { User } from "./class/user.js"
+import { User } from "./user.js"
 
 const user = new User()
 const login_link = document.querySelector('a#login-link')
