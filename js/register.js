@@ -10,7 +10,7 @@ document.querySelector('#signup-button').addEventListener('click',(event) => {
   const password = password_input.value
 
   user.register(email, password).then(user => {
-    window.location.href="login.html"
+    window.location.href="../login.html"
   }).catch(error => {
     alert(error)
   })
