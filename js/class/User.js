@@ -58,7 +58,7 @@ class User {
     }
   }
 
-  logout() {
+  async logout() {
     this.#id = undefined
     this.#email = undefined
     sessionStorage.removeItem('user')
