@@ -1,7 +1,6 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "devStart": "nodemon index.js",
@@ -15,8 +14,11 @@
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "express-fileupload": "^1.5.0",
+    "node": "^18.20.2",
     "nodemon": "^3.1.0",
     "pg": "^8.11.5",
     "ps": "^1.0.0"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }
