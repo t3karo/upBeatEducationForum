@@ -7,7 +7,7 @@ POST http://localhost:3001/user/login
 Content-Type: application/json
 
 {
-  "email":"upbeat2@email.com",
+  "email":"upbeat6@email.com",
   "password":"test123"
 }
 
@@ -16,7 +16,7 @@ POST http://localhost:3001/user/login
 Content-Type: application/json
 
 {
-  "email":"edu@email.com",
+  "email":"upbeat6@email.com",
   "password":"wrong123"
 }
 
@@ -25,6 +25,6 @@ POST http://localhost:3001/user/register
 Content-Type: application/json
 
 {
-  "email":"upbeat2@email.com",
+  "email":"upbeat6@email.com",
   "password":"test123"
 }
