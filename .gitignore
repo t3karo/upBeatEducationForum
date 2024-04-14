@@ -1,4 +1,9 @@
+# Node modules directory
 server/node_modules/
+
+# VSCode settings directory
 .vscode/
-/package.json
-/package-lock.json
+
+# Server configuration files
+server/package.json
+server/package-lock.json
