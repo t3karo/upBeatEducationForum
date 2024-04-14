@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "devStart": "nodemon index.js",
+    "Start": "nodemon index.js",
     "test": "nodemon index.js"
   },
   "keywords": [],
