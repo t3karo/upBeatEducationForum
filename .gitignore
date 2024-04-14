@@ -10,3 +10,6 @@ server/package-lock.json
 
 #PC local files
 .DS_Store
+
+#ignore client.rest
+server/client.rest
