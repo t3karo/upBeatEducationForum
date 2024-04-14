@@ -1,4 +1,4 @@
---working
+--work
 drop TABLE if exists account;
 
 create table account (
