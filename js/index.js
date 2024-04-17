@@ -127,12 +127,19 @@ window.addEventListener('click',(event) => {
 
 const getPosts = () => {
   posts.getPosts().then(post_objects => {
-    post_objects.forEach(post_object => {
-      render_post_article(post_object)
-    });
+    posts_div.innerHTML = '';
+    if (post_objects.length > 0) {
+      post_objects.sort((a, b) => b.id - a.id);
+      post_objects.forEach(post_object => {
+        render_post_article(post_object);
+      });
+    } else {
+      posts_div.innerHTML = '<p>No posts available.</p>';
+    }
   }).catch(error => {
-    alert(error)
-  })
-}
+    console.error("Failed to load posts:", error);
+    alert("Failed to load posts: " + error);
+  });
+};
 
-getPosts()
+getPosts();
