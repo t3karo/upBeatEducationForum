@@ -4,27 +4,30 @@
   }
   
   /* Header */
-  header {
+  #main-header {
     background-color: var(--dark-color);
     color: var(--light-color);
+  }
+
+  .inner-header{
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    align-items: center;
     padding: 1em;
   }
   
-  header .logo {
+  #main-header div.logo {
     display: flex;
     align-items: center;
   }
   
-  header .logo img {
+  #main-header .logo img {
     height: 4em;
     width: 4em;
     margin-right: 1em;
   }
   
-  header .logo h2 {
+  #main-header .logo h2 {
     margin: 0;
     padding: 0;
     line-height: 1;
@@ -34,7 +37,7 @@
   }
   
   a#logo-title{
-    text-decoration: none !important;
+    text-decoration: none;
   }
 
   h2 {
@@ -46,9 +49,6 @@
     background-color: var(--dark-color);
     display: flex;
     justify-content: center;
-    position: fixed;
-    bottom: 0;
-    left:0;
     width: 100%;
   }
   
@@ -107,6 +107,37 @@ body {
 form {
   margin-bottom: 20px; /* Add margin bottom */
 }
+
+#add-new-post-link {
+  display: block;
+  background-color: var(--dark-color);
+  color: #fff; 
+  padding: 0.5em 1em;
+  border-radius: 4px; 
+  text-decoration: none; 
+  transition: background-color 0.3s ease;
+  margin: 1.6em;
+  }
+
+  #add-new-post-link:hover {
+    background-color: #0056b3; /* Change button background color on hover */
+  }
+/* Article styles */
+article {
+  background-color: #fff; 
+  padding: 1.6em;
+  margin: 1.6em;
+  border-radius: 1.6em; 
+}
+
+.card-title{
+  font-weight: 600;
+  color: #333;
+  font-family: sans-serif;
+}
+
+
+/* Footer styles */
 
 footer {
   background-color: #343a40; /* Set background color */
