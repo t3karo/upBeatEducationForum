@@ -1,4 +1,4 @@
-import { User } from "./class/user.js";
+import { User } from "./class/User.js";
 
 const user = new User()
 const email_input = document.querySelector('#user-email')
