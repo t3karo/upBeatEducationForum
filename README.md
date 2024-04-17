@@ -5,7 +5,7 @@
 - run the following command:
 ```
 npm init -y
-npm i express bcrypt pg nodemon cors express-fileupload
+npm i express bcrypt pg nodemon cors express-fileupload dotenv jsonwebtoken
 npm run devStart
 ```
 
