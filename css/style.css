@@ -1,170 +1,172 @@
 :root {
-    --dark-color: #151a3a;
-    --light-color:whitesmoke;
-  }
-  
-  /* Header */
-  #main-header {
-    background-color: var(--dark-color);
-    color: var(--light-color);
-  }
+  --dark-color: #151a3a;
+  --light-color:whitesmoke;
+}
+/* Header */
+#main-header {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+}
 
-  .inner-header{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 1em;
-  }
-  
-  #main-header div.logo {
-    display: flex;
-    align-items: center;
-  }
-  
-  #main-header .logo img {
-    height: 4em;
-    width: 4em;
-    margin-right: 1em;
-  }
-  
-  #main-header .logo h2 {
-    margin: 0;
-    padding: 0;
-    line-height: 1;
-    font-size: 1.5em;
-    font-weight: bold;
-    color: var(--light-color);
-  }
-  
-  a#logo-title{
-    text-decoration: none;
-  }
+.inner-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1em;
+}
 
-  h2 {
-    color: var(--light-color);
-    margin: 0em ;
-  }
-  
-  footer {
-    background-color: var(--dark-color);
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  footer p {
-    color: var(--light-color) 
-  }
-  
-  
-  #login h3,#registration h3 {
-    margin-bottom: 1em;
-  }
-  
-  #login button,#registration button {
-    margin: 1em 0;
-  }
-  
+#main-header div.logo {
+  display: flex;
+  align-items: center;
+}
+
+#main-header .logo img {
+  height: 4em;
+  width: 4em;
+  margin-right: 1em;
+}
+
+#main-header .logo h2 {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--light-color);
+}
+
+a#logo-title{
+  text-decoration: none;
+}
+
+h2 {
+  color: var(--light-color);
+  margin: 0em ;
+}
+
+footer {
+  background-color: var(--dark-color);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+}
+
+footer p {
+  color: var(--light-color) 
+}
+
+
+#login h3,#registration h3 {
+  margin-bottom: 1em;
+}
+
+#login button,#registration button {
+  margin: 1em 0;
+}
+
 /* Custom CSS to improve the navbar */
 .navbar {
-  background-color: var(--dark-color); /* Change background color */
-  box-shadow: none; /* Remove box shadow */
+background-color: var(--dark-color); /* Change background color */
+box-shadow: none; /* Remove box shadow */
 }
 
 .navbar-nav .nav-link {
-  color: var(--light-color); /* Change link color */
+color: var(--light-color); /* Change link color */
 }
 
 .navbar-nav .nav-link:hover {
-  color: #007bff; /* Change link color on hover */
+color: #007bff; /* Change link color on hover */
 }
 
 .navbar-toggler {
-  border-color: #343a40; /* Change border color of the toggler */
+border-color: #343a40; /* Change border color of the toggler */
 }
 
 .navbar-toggler-icon {
-  background-color: #343a40; /* Change color of the toggler icon */
+background-color: #343a40; /* Change color of the toggler icon */
 }
 /* General styles */
 body {
-  font-family: Arial, sans-serif; /* Set default font family */
-  background-color: #f8f9fa; /* Set background color */
-  margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
+font-family: Arial, sans-serif; /* Set default font family */
+background-color: #f8f9fa; /* Set background color */
+margin: 0; /* Remove default margin */
+padding: 0; /* Remove default padding */
 }
 
 .container {
-  margin-top: 50px; /* Add margin to the top */
+margin-top: 50px; /* Add margin to the top */
+min-height: 80vh;
 }
 
 .form-container {
-  background-color: #fff; /* Set background color */
-  padding: 20px; /* Add padding */
-  border-radius: 10px; /* Add border radius */
+background-color: #fff; /* Set background color */
+padding: 20px; /* Add padding */
+border-radius: 10px; /* Add border radius */
 }
 
 form {
-  margin-bottom: 20px; /* Add margin bottom */
+margin-bottom: 20px; /* Add margin bottom */
 }
 
 #add-new-post-link {
-  display: block;
-  background-color: var(--dark-color);
-  color: #fff; 
-  padding: 0.5em 1em;
-  border-radius: 4px; 
-  text-decoration: none; 
-  transition: background-color 0.3s ease;
-  margin: 1.6em;
-  }
+display: block;
+background-color: var(--dark-color);
+color: #fff; 
+padding: 0.5em 1em;
+border-radius: 4px; 
+text-decoration: none; 
+transition: background-color 0.3s ease;
+margin: 1.6em;
+}
 
-  #add-new-post-link:hover {
-    background-color: #0056b3; /* Change button background color on hover */
-  }
+#add-new-post-link:hover {
+  background-color: #0056b3; /* Change button background color on hover */
+}
 /* Article styles */
 article {
-  background-color: #fff; 
-  padding: 1.6em;
-  margin: 1.6em;
-  border-radius: 1.6em; 
+background-color: #fff; 
+padding: 1.6em;
+margin: 1.6em;
+border-radius: 1.6em; 
 }
 
 .card-title{
-  font-weight: 600;
-  color: #333;
-  font-family: sans-serif;
+font-weight: 600;
+color: #333;
+font-family: sans-serif;
 }
 
 
 /* Footer styles */
 
 footer {
-  background-color: #343a40; /* Set background color */
-  color: #fff; /* Set text color */
-  padding: 20px; /* Add padding */
+background-color: #343a40; /* Set background color */
+color: #fff; /* Set text color */
+padding: 20px; /* Add padding */
 }
 
 footer p {
-  margin: 0; /* Remove default margin */
+margin: 0; /* Remove default margin */
 }
 
 footer ul {
-  list-style-type: none; /* Remove default list style */
-  padding: 0; /* Remove default padding */
-  margin: 0; /* Remove default margin */
+list-style-type: none; /* Remove default list style */
+padding: 0; /* Remove default padding */
+margin: 0; /* Remove default margin */
 }
 
 footer ul li {
-  display: inline; /* Display list items inline */
-  margin-right: 10px; /* Add margin right */
+display: inline; /* Display list items inline */
+margin-right: 10px; /* Add margin right */
 }
 
 footer ul li a {
-  color: #fff; /* Set link color */
-  text-decoration: none; /* Remove underline */
+color: #fff; /* Set link color */
+text-decoration: none; /* Remove underline */
 }
 
 #add-new-post-link{
-  display: inline;
+display: inline;
 }
