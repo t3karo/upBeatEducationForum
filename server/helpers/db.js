@@ -1,4 +1,4 @@
-// wokring
+require('dotenv').config()
 const { Pool } = require('pg')
 
 const query = (sql,values=[]) => {
@@ -15,11 +15,11 @@ const query = (sql,values=[]) => {
 
 const openDb = () => {
   const pool = new Pool({
-    user: "postgres",
-    host: "localhost",
-    database: "upbeatedu",
-    password: "admin1234",
-    port: 5432
+    user: process.env.PG_USER,
+    host: process.env.HOST,
+    database: process.env.DATABASE,
+    password: process.env.PASSWORD,
+    port: process.env.PORT
   })
   return pool
 }
