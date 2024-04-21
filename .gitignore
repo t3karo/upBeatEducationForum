@@ -13,3 +13,6 @@ server/package-lock.json
 
 #ignore client.rest
 server/client.rest
+
+#ignore images
+server/public/images/

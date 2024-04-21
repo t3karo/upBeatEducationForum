@@ -33,3 +33,10 @@ create table comment (
       foreign key (account_id)
         references account(id)
 )
+
+ALTER TABLE account
+ADD COLUMN reset_password_token VARCHAR(255);
+
+
+ALTER TABLE account
+ADD COLUMN reset_password_expires TIMESTAMP;

@@ -1,7 +1,7 @@
-// wokring
+require('dotenv').config()
 const { Pool } = require('pg')
 
-const query = (sql,values=[]) => {
+const query = async (sql,values=[]) => {
   return new Promise(async(resolve,reject)=> {
     try {
       const pool = openDb()
@@ -18,7 +18,7 @@ const openDb = () => {
     user: "postgres",
     host: "localhost",
     database: "upbeatedu",
-    password: "khatri",
+    password: "admin1234",
     port: 5432
   })
   return pool
@@ -27,3 +27,9 @@ const openDb = () => {
 module.exports = {
   query
 }
+
+// const pool = new Pool({
+//   connectionString: process.env.DATABASE_URL
+// });
+
+// module.exports = pool;
