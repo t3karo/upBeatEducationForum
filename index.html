@@ -13,6 +13,13 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8">
+<!--search form-->
+        <form action="/search" method="get">
+          <input type="text" name="query" placeholder="Search....">
+          <button type="submit">Search</button>
+        </form>
+         <div id="searchResults"></div>
+         <div id="resultDiv"></div>
         <a id="add-new-post-link" style="display: none;" href="addpost.html">Add new post</a>
         <div class="container" id="posts"></div>
         <div id="modal" class="modal">
