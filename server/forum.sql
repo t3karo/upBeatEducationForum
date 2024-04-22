@@ -40,3 +40,7 @@ ADD COLUMN reset_password_token VARCHAR(255);
 
 ALTER TABLE account
 ADD COLUMN reset_password_expires TIMESTAMP;
+
+ALTER TABLE post ADD COLUMN tsv TSVECTOR;
+UPDATE post SET tsv = to_tsvector('english', title || ' ' || message);
+CREATE INDEX tsv_index ON post USING GIN(tsv);
