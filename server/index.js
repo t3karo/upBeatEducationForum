@@ -18,13 +18,6 @@ app.use('/',blogRouter)
 app.use('/user',userRouter)
 app.use('/auth',authRouter)
 
-// app.use('/forgot-password',authRouter)
-// app.use('/reset',authRouter)
-
-// app.get('/reset', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../', 'reset-password.html'));
-// });
-
 
 app.listen(port,() => {
   console.log(`Server is listening on port ${port}`)
