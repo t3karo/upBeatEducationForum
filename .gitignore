@@ -18,4 +18,4 @@ server/client.rest
 server/public/images/
 
 #ignore env file
-server/.env
+.env
