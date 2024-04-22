@@ -79,7 +79,7 @@ const render_commentcount = (parent_element,post) => {
   comment_p.innerHTML = "Comments " + post.comments
   comment_p.addEventListener('click',()=> {
     render_comments(post)
-    modal_window.style.display = 'block'
+    modal_window.style.display = 'flex'
   })
 }
 
