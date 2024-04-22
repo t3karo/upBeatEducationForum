@@ -280,6 +280,14 @@ display: inline;
   margin-bottom: 0;
  }
  
+ /* css for sidebar */
+ aside {
+  float: right;
+ }
+
+ .sidebar-header{
+  color: #333
+ }
  
 @media (max-width: 800px) {
   .contact-inputs{
