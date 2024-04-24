@@ -3,6 +3,7 @@ const { query } = require('../helpers/db.js')
 const jwt = require('jsonwebtoken')
 require('dotenv').config()
 const { auth } = require('../helpers/auth.js')
+const pool = require('../helpers/db.js')
 
 const blogRouter = express.Router()
 
@@ -44,6 +45,41 @@ blogRouter.post("/new",auth,async(req,res) => {
     res.status(500).json({error: error})
   }
 })
+
+blogRouter.get('/post/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+      // First, fetch the post details along with the author
+      const postSql = `
+      SELECT post.id, post.title, post.message, post.image_name, post.saved, account.email AS author
+      FROM post
+      INNER JOIN account ON post.account_id = account.id
+      WHERE post.id = $1;
+      `;
+      const postResult = await pool.query(postSql, [id]);
+      if (postResult.rows.length > 0) {
+          const post = postResult.rows[0];
+
+          // Next, fetch comments for the post
+          const commentsSql = `
+          SELECT comment.id, comment.comment_text, comment.saved, account.email AS author
+          FROM comment
+          INNER JOIN account ON comment.account_id = account.id
+          WHERE comment.post_id = $1;
+          `;
+          const commentsResult = await pool.query(commentsSql, [id]);
+          const comments = commentsResult.rows;
+
+          // Combine post and comments in the response
+          res.json({ ...post, comments });
+      } else {
+          res.status(404).json({ message: 'Post not found' });
+      }
+  } catch (err) {
+      console.error(err);
+      res.status(500).send('Server error');
+  }
+});
 
 blogRouter.delete("/delete/:id",auth,async(req,res) => {
   const id = Number(req.params.id)

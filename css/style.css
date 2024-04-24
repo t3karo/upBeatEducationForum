@@ -125,7 +125,7 @@ padding: 0.5em 1em;
 border-radius: 4px; 
 text-decoration: none; 
 transition: background-color 0.3s ease;
-margin: 1.6em;
+margin: 1.6em 0;
 }
 
 #add-new-post-link:hover {
@@ -168,6 +168,21 @@ font-family: sans-serif;
   Margin: 1em;
 
 }
+
+/* Search Results Styles */
+#searchResults a{
+  text-decoration: none;
+}
+
+#searchResults h5{
+  color: rgb(10, 88, 202);
+  text-decoration: underline;
+}
+
+.card-link+.card-link{
+  margin-left: 0;
+}
+
 /* Footer styles */
 
 footer {
@@ -300,6 +315,11 @@ display: inline;
  ul#comment-list{
   margin-bottom: 0;
  }
+ 
+
+#postDetail h2{
+    color: #000;
+  }
  
  /* css for sidebar */
  .sidebar-header{

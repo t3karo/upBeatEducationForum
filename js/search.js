@@ -17,28 +17,30 @@ function displayResults(results) {
   resultsDiv.innerHTML = '';
   const posts = document.getElementById('posts'); 
     posts.style.display = 'none';
-  if (results.length > 0) {
-      results.forEach(result => {
-          const card = document.createElement('div');
-          card.className = 'card mb-3'; 
-
-          const cardBody = document.createElement('div');
-          cardBody.className = 'card-body';
-
-          const title = document.createElement('h5');
-          title.className = 'card-title';
-          title.textContent = result.title;
-
-          const message = document.createElement('p');
-          message.className = 'card-text';
-          message.textContent = result.message;
-
-          cardBody.appendChild(title);
-          cardBody.appendChild(message);
-          card.appendChild(cardBody);
-          resultsDiv.appendChild(card);
-      });
-  } else {
-      resultsDiv.innerHTML = '<p>No results found.</p>';
+    if (results.length > 0) {
+        results.forEach(result => {
+            const cardLink = document.createElement('a');
+            cardLink.href = `post.html?id=${result.id}`;
+            cardLink.className = 'card mb-3 card-link';
+  
+            const cardBody = document.createElement('div');
+            cardBody.className = 'card-body';
+  
+            const title = document.createElement('h5');
+            title.className = 'card-title';
+            title.textContent = result.title;
+  
+            const message = document.createElement('p');
+            message.className = 'card-text';
+            message.textContent = result.message;
+  
+            cardBody.appendChild(title);
+            cardBody.appendChild(message);
+            cardLink.appendChild(cardBody);
+            resultsDiv.appendChild(cardLink);
+            
+        });
+    } else {
+        resultsDiv.innerHTML = '<p>No results found.</p>';
+    }
   }
-}
