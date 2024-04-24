@@ -11,3 +11,11 @@ if (user.isLoggedIn) {
     login_link_a.innerHTML = "Login"
     login_link_a.href="login.html"
 }
+
+const hide_register = document.getElementById('hide_register');
+
+if (user.isLoggedIn) {
+    hide_register.style.display = 'none';
+} else {
+    hide_register.style.display = 'inline-block';
+}
