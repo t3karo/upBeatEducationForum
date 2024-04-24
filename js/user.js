@@ -13,7 +13,6 @@ if (user.isLoggedIn) {
 }
 
 const hide_register = document.getElementById('hide_register');
-var navMenu = document.getElementById('navbar-nav');
 
 if (user.isLoggedIn) {
     hide_register.style.display = 'none';
