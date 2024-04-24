@@ -56,7 +56,7 @@ footer {
   justify-content: center;
   width: 100%;
   position: relative;
-  top: 100%;
+  bottom: 0;
 }
 
 footer p {
@@ -104,7 +104,7 @@ padding: 0; /* Remove default padding */
 
 .container {
 margin-top: 30px; /* Add margin to the top */
-height: 81.5vh;
+min-height: 81.5vh;
 }
 
 .form-container {
