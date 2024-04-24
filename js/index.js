@@ -36,11 +36,21 @@ const render_post_image = (parent_element,post) => {
   img.src = BACKEND_URL + '/images/' + post.image
 }
 
-const render_post_title = (parent_element,post) => {
-  const post_title = parent_element.appendChild(document.createElement('h3'))
-  post_title.setAttribute('class','card-title')
-  post_title.innerHTML = post.title
-}
+// const render_post_title = (parent_element,post) => {
+//   const post_title = parent_element.appendChild(document.createElement('h3'))
+//   post_title.setAttribute('class','card-title')
+//   post_title.innerHTML = post.title
+// }
+
+const render_post_title = (parent_element, post) => {
+  const postTitle = document.createElement('h3');
+  postTitle.className = 'card-title';
+  const link = document.createElement('a');
+  link.href = `post.html?id=${post.id}`; // Link to a new page with a query parameter
+  link.textContent = post.title;
+  postTitle.appendChild(link);
+  parent_element.appendChild(postTitle);
+};
 
 const render_post_by = (parent_element,post) => {
   const author_p = parent_element.appendChild(document.createElement('p'))
