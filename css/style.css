@@ -2,6 +2,12 @@
   --dark-color: #151a3a;
   --light-color:whitesmoke;
 }
+.body {
+  font-family: Arial, sans-serif;
+  background-color: #7b8389;
+  margin: 0;
+  padding: 0;
+}
 /* Header */
 #main-header {
   background-color: var(--dark-color);
@@ -87,6 +93,7 @@ border-color: #343a40; /* Change border color of the toggler */
 .navbar-toggler-icon {
 background-color: #343a40; /* Change color of the toggler icon */
 }
+
 /* General styles */
 body {
 font-family: Arial, sans-serif; /* Set default font family */
@@ -96,8 +103,8 @@ padding: 0; /* Remove default padding */
 }
 
 .container {
-margin-top: 50px; /* Add margin to the top */
-min-height: 80vh;
+margin-top: 30px; /* Add margin to the top */
+min-height: 81.5vh;
 }
 
 .form-container {
@@ -118,18 +125,19 @@ padding: 0.5em 1em;
 border-radius: 4px; 
 text-decoration: none; 
 transition: background-color 0.3s ease;
-margin: 1.6em;
+margin: 1.6em 0;
 }
 
 #add-new-post-link:hover {
   background-color: #0056b3; /* Change button background color on hover */
 }
+
 /* Article styles */
 article {
 background-color: #fff; 
 padding: 1.6em;
-margin: 1.6em;
 border-radius: 1.6em; 
+margin-bottom: 1.6em; 
 }
 
 .card-title{
@@ -138,6 +146,42 @@ color: #333;
 font-family: sans-serif;
 }
 
+/* Search form styles */
+#searchForm{
+  padding: 0 1em;
+  margin-bottom: 0;
+}
+
+#searchForm Input{
+  padding: 0.5em;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+#searchForm Button{
+  padding: 0.5em;
+  border-radius: 4px;
+  border: 1px solid var(--dark-color);;
+  background-color: var(--dark-color);
+  color: #fff;
+  cursor: pointer;
+  Margin: 1em;
+
+}
+
+/* Search Results Styles */
+#searchResults a{
+  text-decoration: none;
+}
+
+#searchResults h5{
+  color: rgb(10, 88, 202);
+  text-decoration: underline;
+}
+
+.card-link+.card-link{
+  margin-left: 0;
+}
 
 /* Footer styles */
 
@@ -169,4 +213,251 @@ text-decoration: none; /* Remove underline */
 
 #add-new-post-link{
 display: inline;
+}
+
+/*contactus*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.contact-container{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.contact-left{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 20px;
+}
+.contact-left-title h2{
+  font-weight: 600;
+  color :#ff994f;
+  font-size: 40px;
+  margin-bottom: 5px;
+}
+.contact-left-title hr {
+  border : none;
+  width: 140px;
+  height: 5px;
+  background-color: #ff994f;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+.contact-inputs{
+  width : 400px;
+  height : 50px;
+  border: none;
+  outline: none;
+  padding-left: 25px;
+  font-weight: 500;
+  color: #666;
+  border-radius: 50px;
+}
+.contact-left textarea{
+  height: 140px;
+  padding-top: 15px;
+  border-radius: 20px;
+}
+.contact-inputs:focus {
+  border: 2px solid #ff994f;
+}
+.contact-inputs::placeholder{
+  color: #a9a9a9;
+}
+.contact-left button{
+  display: flex;
+  align-items: center;
+  padding: 12px 24px;
+  font-size: 16px;
+  color: whitesmoke;
+  gap : 10px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(270deg,#ff994f,#fa6d86);
+  cursor: pointer;
+}
+.contact-left button:hover{
+  background: linear-gradient(270deg,#fa6d86,#ff994f);
+}
+.contact-inputs button img{
+  height: 5px;
+}
+.contact-inputs img{
+  width: 500px;
+}
+
+/* comment modal popup */
+#modal{
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+  z-index: 1;
+ }
+ 
+ .modal-content{
+  width: 50%;
+  padding: 1.6em;
+  background-color: var(--dark-color);
+  color: #fff;
+  box-shadow: 0 0 10px #fff;
+  z-index: 1;
+ }
+ 
+ ul#comment-list{
+  margin-bottom: 0;
+ }
+ 
+
+#postDetail h2{
+    color: #000;
+  }
+ 
+ /* css for sidebar */
+ .sidebar-header{
+  color: #333
+ }
+ 
+@media (max-width: 800px) {
+  .contact-inputs{
+      width : 80vw;
+  }
+  .contact-right{
+      display: none;
+  }
+}
+
+/* Contact us Css style */
+
+.contact-section {
+  padding: 50px 0;
+  background-color: #f9f9f9;
+  text-align: center; /* Center align content */
+}
+
+.contact-section h2 {
+  color: #007bff; /* Dark blue heading */
+  margin-bottom: 20px;
+}
+
+.contact-section p {
+  color: #555; /* Dark grey text */
+  margin-bottom: 20px;
+}
+
+.contact-section ul {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+
+#aboutupbeat{
+  width: 100%;
+  height: 100%;
+}
+
+.contact-section ul li {
+  margin-bottom: 10px;
+}
+
+.contact-section ul li strong {
+  color: #007bff; /* Dark blue text */
+}
+
+.contact-section a {
+  color: #007bff; /* Dark blue link */
+  text-decoration: none;
+}
+
+.contact-section a:hover {
+  text-decoration: underline;
+}
+
+.contact-section form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #ff6f00; /* Orange border */
+  border-radius: 5px;
+  background-color: #fff; /* White background */
+  box-sizing: border-box;
+  box-shadow: #007bff;
+}
+
+.contact-section form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333; /* Dark grey text */
+}
+
+.contact-section form input[type="text"],
+.contact-section form input[type="email"],
+.contact-section form textarea {
+  width: calc(100% - 22px); /* Adjusting width to consider padding and border */
+  padding: 10px;
+  margin: 0 auto 15px; /* Center align and bottom margin */
+  border: 1px solid #007bff; /* Dark blue border */
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.contact-section form textarea {
+  resize: vertical;
+}
+
+.contact-section form input[type="submit"] {
+  width: auto; /* Adjusting width */
+  background-color: #007bff; /* Dark blue button */
+  color: #fff; /* White text */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.contact-section form input[type="submit"]:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+
+
+/* Add styles for the About Us section */
+#about {
+  padding: 50px 0;
+  background-color: #f0f0f0; /* Light grey background */
+}
+
+
+
+.about-section h2 {
+  color: #1a237e; /* Dark blue heading */
+  font-family: 'Arial', sans-serif; /* Custom font */
+  font-size: 36px; /* Larger font size */
+  margin-bottom: 20px;
+}
+
+.about-section p {
+  margin-bottom: 20px;
+  font-family: 'Roboto', sans-serif; /* Custom font */
+  font-size: 18px; /* Larger font size */
+}
+
+.about-section a {
+  color: #ff6f00; /* Orange link color */
+  text-decoration: none;
+  transition: color 0.3s ease; /* Smooth transition */
+}
+
+.about-section a:hover {
+  color: #e65100; /* Darker orange on hover */
+  text-decoration: underline;
 }

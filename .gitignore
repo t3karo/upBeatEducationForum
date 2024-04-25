@@ -16,3 +16,6 @@ server/client.rest
 
 #ignore images
 server/public/images/
+
+#ignore env file
+server/.env
