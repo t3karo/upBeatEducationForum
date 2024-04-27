@@ -74,24 +74,37 @@ footer p {
 
 /* Custom CSS to improve the navbar */
 .navbar {
-background-color: var(--dark-color); /* Change background color */
-box-shadow: none; /* Remove box shadow */
+  background-color: var(--dark-color); /* Change background color */
+  box-shadow: none; /* Remove box shadow */
 }
 
 .navbar-nav .nav-link {
-color: var(--light-color); /* Change link color */
+  color: var(--light-color); /* Change link color */
 }
 
 .navbar-nav .nav-link:hover {
-color: #007bff; /* Change link color on hover */
+  color: #007bff; /* Change link color on hover */
 }
 
 .navbar-toggler {
-border-color: #343a40; /* Change border color of the toggler */
+  border-color: #343a40; /* Change border color of the toggler */
 }
 
 .navbar-toggler-icon {
-background-color: #343a40; /* Change color of the toggler icon */
+  background-color: #343a40; /* Change color of the toggler icon */
+}
+
+/* Add orange color */
+.navbar {
+  background-color: orange; /* Change navbar background color */
+}
+
+.navbar-nav .nav-link {
+  color: white; /* Change link color */
+}
+
+.navbar-nav .nav-link:hover {
+  color: #fff; /* Change link color on hover */
 }
 
 /* General styles */
