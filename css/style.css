@@ -334,19 +334,30 @@ display: inline;
     color: #000;
   }
  
- /* css for sidebar */
- .sidebar-header{
-  color: #333
- }
- 
+ /* CSS for sidebar */
+.sidebar {
+  background-color: #a7a5a6; /* Change background color */
+  width: 250px; 
+  padding: 20px; 
+  border-right: 1px solid #ccc; /* Add border */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow */
+  overflow-y: auto; /* Add vertical scroll */
+}
+
+.sidebar-header {
+  color: #333;
+  font-size: 20px; 
+  margin-bottom: 20px; 
+}
+
+/* Media query for small screens */
 @media (max-width: 800px) {
-  .contact-inputs{
-      width : 80vw;
-  }
-  .contact-right{
-      display: none;
+  .sidebar {
+      width: 100%; /* Occupy full width */
+      border-right: none; /* Remove border */
   }
 }
+
 
 /* Contact us Css style */
 
