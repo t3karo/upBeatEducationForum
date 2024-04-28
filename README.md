@@ -3,6 +3,11 @@
 - Create your branch by cloning the master
 - Never push git to the master
 - run the following command:
+
+```
+cd server
+```
+  
 ```
 npm init -y
 npm i express bcrypt pg nodemon cors express-fileupload dotenv jsonwebtoken bcryptjs nodemailer
