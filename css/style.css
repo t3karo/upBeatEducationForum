@@ -74,24 +74,34 @@ footer p {
 
 /* Custom CSS to improve the navbar */
 .navbar {
-background-color: var(--dark-color); /* Change background color */
-box-shadow: none; /* Remove box shadow */
+  background-color: var(--dark-color); /* Change background color */
+  box-shadow: none; /* Remove box shadow */
 }
 
 .navbar-nav .nav-link {
-color: var(--light-color); /* Change link color */
+  color: var(--light-color); /* Change link color */
 }
 
 .navbar-nav .nav-link:hover {
-color: #007bff; /* Change link color on hover */
+  color: #007bff; /* Change link color on hover */
 }
 
 .navbar-toggler {
-border-color: #343a40; /* Change border color of the toggler */
+  border-color: #343a40; /* Change border color of the toggler */
 }
 
 .navbar-toggler-icon {
-background-color: #343a40; /* Change color of the toggler icon */
+  background-color: #c0c7cf; /* Change color of the toggler icon */
+}
+
+
+
+.navbar-nav .nav-link {
+  color: white; /* Change link color */
+}
+
+.navbar-nav .nav-link:hover {
+  color: orange; /* Change link color on hover */
 }
 
 /* General styles */
@@ -321,19 +331,30 @@ display: inline;
     color: #000;
   }
  
- /* css for sidebar */
- .sidebar-header{
-  color: #333
- }
- 
+ /* CSS for sidebar */
+.sidebar {
+  background-color: #a7a5a6; /* Change background color */
+  width: 250px; 
+  padding: 20px; 
+  border-right: 1px solid #ccc; /* Add border */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow */
+  overflow-y: auto; /* Add vertical scroll */
+}
+
+.sidebar-header {
+  color: #333;
+  font-size: 20px; 
+  margin-bottom: 20px; 
+}
+
+/* Media query for small screens */
 @media (max-width: 800px) {
-  .contact-inputs{
-      width : 80vw;
-  }
-  .contact-right{
-      display: none;
+  .sidebar {
+      width: 100%; /* Occupy full width */
+      border-right: none; /* Remove border */
   }
 }
+
 
 /* Contact us Css style */
 
@@ -460,4 +481,98 @@ display: inline;
 .about-section a:hover {
   color: #e65100; /* Darker orange on hover */
   text-decoration: underline;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative; /* To allow absolute positioning of the background */
+}
+
+.container:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('images/aboutupbeat.jpg'); /* Path to your image */
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.2; /* Adjust opacity as needed */
+  z-index: -1; /* Push the background behind other content */
+}
+
+h3 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h4 {
+  color: #555;
+  margin-top: 30px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Change the font for topics */
+  font-weight: bold; /* Bold font for topics */
+}
+
+p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.contact {
+  margin-top: 40px;
+}
+
+.contact-email {
+  color: #007bff;
+}
+
+/* Styling specific to topics */
+h4 {
+  border-bottom: 2px solid #ff7f00; /* Orange line color */
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+h4:first-child {
+  margin-top: 0;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+/* Add style for category  */
+.btn-content{
+  display: inline-block;
+  text-decoration: none;
+  font-size: 18px;
+  border: none;
+  padding: 1px;
+  color: black;
+
+}
+.btn-content:hover{
+  color: orange;
+}
+
+/* Add style for university  */
+
+.btn-university{
+  display: inline-block;
+  text-decoration: none;
+  font-size: 18px;
+  border: none;
+  padding: 1px;
+  color: black;
+
+}
+.btn-content:hover{
+  color: orange;
 }
