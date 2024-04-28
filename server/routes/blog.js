@@ -49,7 +49,6 @@ blogRouter.post("/new",auth,async(req,res) => {
 blogRouter.get('/post/:id', async (req, res) => {
   const { id } = req.params;
   try {
-      // First, fetch the post details along with the author
       const postSql = `
       SELECT post.id, post.title, post.message, post.image_name, post.saved, account.email AS author
       FROM post
@@ -60,7 +59,6 @@ blogRouter.get('/post/:id', async (req, res) => {
       if (postResult.rows.length > 0) {
           const post = postResult.rows[0];
 
-          // Next, fetch comments for the post
           const commentsSql = `
           SELECT comment.id, comment.comment_text, comment.saved, account.email AS author
           FROM comment
@@ -70,7 +68,6 @@ blogRouter.get('/post/:id', async (req, res) => {
           const commentsResult = await pool.query(commentsSql, [id]);
           const comments = commentsResult.rows;
 
-          // Combine post and comments in the response
           res.json({ ...post, comments });
       } else {
           res.status(404).json({ message: 'Post not found' });

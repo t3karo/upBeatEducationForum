@@ -46,7 +46,7 @@ const render_post_title = (parent_element, post) => {
   const postTitle = document.createElement('h3');
   postTitle.className = 'card-title';
   const link = document.createElement('a');
-  link.href = `post.html?id=${post.id}`; // Link to a new page with a query parameter
+  link.href = `post.html?id=${post.id}`; 
   link.textContent = post.title;
   postTitle.appendChild(link);
   parent_element.appendChild(postTitle);
