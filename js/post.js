@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function displayPostDetails(post) {
     const postDetailDiv = document.getElementById('postDetail');
-    postDetailDiv.innerHTML = ''; // Clear previous contents
+    postDetailDiv.innerHTML = ''; 
 
     const title = document.createElement('h1');
     title.textContent = post.title;
@@ -42,7 +42,7 @@ function displayPostDetails(post) {
         const image = document.createElement('img');
         image.src = `${BACKEND_URL}/images/${post.image}`;
         image.alt = 'Post Image';
-        image.style.width = '100%'; // Example styling, adjust as needed
+        image.style.width = '100%'; 
         postDetailDiv.appendChild(image);
     }
 

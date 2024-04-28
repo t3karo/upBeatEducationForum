@@ -74,47 +74,47 @@ footer p {
 
 /* Custom CSS to improve the navbar */
 .navbar {
-background-color: var(--dark-color); /* Change background color */
-box-shadow: none; /* Remove box shadow */
+background-color: var(--dark-color); 
+box-shadow: none; 
 }
 
 .navbar-nav .nav-link {
-color: var(--light-color); /* Change link color */
+color: var(--light-color); 
 }
 
 .navbar-nav .nav-link:hover {
-color: #007bff; /* Change link color on hover */
+color: #007bff; 
 }
 
 .navbar-toggler {
-border-color: #343a40; /* Change border color of the toggler */
+border-color: #343a40; 
 }
 
 .navbar-toggler-icon {
-background-color: #343a40; /* Change color of the toggler icon */
+background-color: #343a40; 
 }
 
 /* General styles */
 body {
-font-family: Arial, sans-serif; /* Set default font family */
-background-color: #f8f9fa; /* Set background color */
-margin: 0; /* Remove default margin */
-padding: 0; /* Remove default padding */
+font-family: Arial, sans-serif; 
+background-color: #f8f9fa; 
+margin: 0; 
+padding: 0; 
 }
 
 .container {
-margin-top: 30px; /* Add margin to the top */
+margin-top: 30px; 
 min-height: 81.5vh;
 }
 
 .form-container {
-background-color: #fff; /* Set background color */
-padding: 20px; /* Add padding */
-border-radius: 10px; /* Add border radius */
+background-color: #fff; 
+padding: 20px; 
+border-radius: 10px; 
 }
 
 form {
-margin-bottom: 20px; /* Add margin bottom */
+margin-bottom: 20px; 
 }
 
 #add-new-post-link {
@@ -129,7 +129,7 @@ margin: 1.6em 0;
 }
 
 #add-new-post-link:hover {
-  background-color: #0056b3; /* Change button background color on hover */
+  background-color: #0056b3; 
 }
 
 /* Article styles */
@@ -186,29 +186,29 @@ font-family: sans-serif;
 /* Footer styles */
 
 footer {
-background-color: #343a40; /* Set background color */
-color: #fff; /* Set text color */
-padding: 20px; /* Add padding */
+background-color: #343a40; 
+color: #fff; 
+padding: 20px; 
 }
 
 footer p {
-margin: 0; /* Remove default margin */
+margin: 0; 
 }
 
 footer ul {
-list-style-type: none; /* Remove default list style */
-padding: 0; /* Remove default padding */
-margin: 0; /* Remove default margin */
+list-style-type: none; 
+padding: 0; 
+margin: 0; 
 }
 
 footer ul li {
-display: inline; /* Display list items inline */
-margin-right: 10px; /* Add margin right */
+display: inline; 
+margin-right: 10px; 
 }
 
 footer ul li a {
-color: #fff; /* Set link color */
-text-decoration: none; /* Remove underline */
+color: #fff; 
+text-decoration: none; 
 }
 
 #add-new-post-link{

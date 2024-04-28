@@ -46,12 +46,10 @@ authRouter.post('/forgot-password', async (req, res) => {
   }
 });
 
-// Route to serve the password reset page
 authRouter.get('/reset/:token', async (req, res) => {
   const { token } = req.params;
   try {
       const client = await pools.connect();
-      // Check if the token exists and is not expired
       const result = await client.query('SELECT * FROM account WHERE reset_password_token = $1 AND reset_password_expires > NOW()', [token]);
       client.release();
 
@@ -59,7 +57,6 @@ authRouter.get('/reset/:token', async (req, res) => {
           return res.status(404).send('Password reset token is invalid or has expired.');
       }
 
-      // If using static HTML
       res.sendFile(path.join(__dirname, '../../reset-password.html'));
 
   } catch (err) {
