@@ -177,7 +177,112 @@ font-family: sans-serif;
 .card-link+.card-link{
   margin-left: 0;
 }
+/* Footer styles */
+@import url("https://fonts.googleapis.com/css2?family=Hind&family=Montserrat:wght@700&display=swap");
 
+.footer {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: top;
+}
+
+.footer_img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.gallery__photo {
+  position: relative;
+  width: 23%;
+  margin: 0 1%;
+}
+
+.gallery__photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  transition: transform .3s;
+}
+
+.gallery__photo:hover img {
+  transform: scale(1.1);
+}
+
+.gallery__fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.gallery__photo:hover .gallery__fade {
+  opacity: 1;
+}
+
+.gallery__icon {
+  color: #fff;
+  font-size: 2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.footerNav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.footerNav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+/* add hoover to footer nav */
+.footerNav ul li a:hover {
+  color: orange;
+}
+.footerNav li {
+  padding: 0 1rem;
+}
+
+.footerNav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footerBottom {
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footerBottom p {
+  margin: 0;
+  font-size: .8rem;
+}
+
+.designer {
+  color: #ffc107;
+  margin-left: .5rem;
+}
 
 /*contactus*/
 * {
