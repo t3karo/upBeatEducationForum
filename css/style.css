@@ -74,24 +74,24 @@ footer p {
 
 /* Custom CSS to improve the navbar */
 .navbar {
-background-color: var(--dark-color); 
-box-shadow: none; 
+background-color: var(--dark-color); /* Change background color */
+box-shadow: none; /* Remove box shadow */
 }
 
 .navbar-nav .nav-link {
-color: var(--light-color); 
+color: var(--light-color); /* Change link color */
 }
 
 .navbar-nav .nav-link:hover {
-color: #007bff; 
+color: #007bff; /* Change link color on hover */
 }
 
 .navbar-toggler {
-border-color: #343a40; 
+border-color: #343a40; /* Change border color of the toggler */
 }
 
 .navbar-toggler-icon {
-background-color: #343a40; 
+background-color: #343a40; /* Change color of the toggler icon */
 }
 
 /* General styles */
@@ -321,16 +321,248 @@ display: inline;
     color: #000;
   }
  
- /* css for sidebar */
- .sidebar-header{
-  color: #333
- }
- 
+ /* CSS for sidebar */
+.sidebar {
+  background-color: #a7a5a6; /* Change background color */
+  width: 250px; 
+  padding: 20px; 
+  border-right: 1px solid #ccc; /* Add border */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow */
+  overflow-y: auto; /* Add vertical scroll */
+}
+
+.sidebar-header {
+  color: #333;
+  font-size: 20px; 
+  margin-bottom: 20px; 
+}
+
+/* Media query for small screens */
 @media (max-width: 800px) {
-  .contact-inputs{
-      width : 80vw;
+  .sidebar {
+      width: 100%; /* Occupy full width */
+      border-right: none; /* Remove border */
   }
-  .contact-right{
-      display: none;
-  }
+}
+
+
+/* Contact us Css style */
+
+.contact-section {
+  padding: 50px 0;
+  background-color: #f9f9f9;
+  text-align: center; /* Center align content */
+}
+
+.contact-section h2 {
+  color: #007bff; /* Dark blue heading */
+  margin-bottom: 20px;
+}
+
+.contact-section p {
+  color: #555; /* Dark grey text */
+  margin-bottom: 20px;
+}
+
+.contact-section ul {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+
+#aboutupbeat{
+  width: 100%;
+  height: 100%;
+}
+
+.contact-section ul li {
+  margin-bottom: 10px;
+}
+
+.contact-section ul li strong {
+  color: #007bff; /* Dark blue text */
+}
+
+.contact-section a {
+  color: #007bff; /* Dark blue link */
+  text-decoration: none;
+}
+
+.contact-section a:hover {
+  text-decoration: underline;
+}
+
+.contact-section form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #ff6f00; /* Orange border */
+  border-radius: 5px;
+  background-color: #fff; /* White background */
+  box-sizing: border-box;
+  box-shadow: #007bff;
+}
+
+.contact-section form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333; /* Dark grey text */
+}
+
+.contact-section form input[type="text"],
+.contact-section form input[type="email"],
+.contact-section form textarea {
+  width: calc(100% - 22px); /* Adjusting width to consider padding and border */
+  padding: 10px;
+  margin: 0 auto 15px; /* Center align and bottom margin */
+  border: 1px solid #007bff; /* Dark blue border */
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.contact-section form textarea {
+  resize: vertical;
+}
+
+.contact-section form input[type="submit"] {
+  width: auto; /* Adjusting width */
+  background-color: #007bff; /* Dark blue button */
+  color: #fff; /* White text */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.contact-section form input[type="submit"]:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+
+
+/* Add styles for the About Us section */
+#about {
+  padding: 50px 0;
+  background-color: #f0f0f0; /* Light grey background */
+}
+
+
+
+.about-section h2 {
+  color: #1a237e; /* Dark blue heading */
+  font-family: 'Arial', sans-serif; /* Custom font */
+  font-size: 36px; /* Larger font size */
+  margin-bottom: 20px;
+}
+
+.about-section p {
+  margin-bottom: 20px;
+  font-family: 'Roboto', sans-serif; /* Custom font */
+  font-size: 18px; /* Larger font size */
+}
+
+.about-section a {
+  color: #ff6f00; /* Orange link color */
+  text-decoration: none;
+  transition: color 0.3s ease; /* Smooth transition */
+}
+
+.about-section a:hover {
+  color: #e65100; /* Darker orange on hover */
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative; /* To allow absolute positioning of the background */
+}
+
+.container:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('images/aboutupbeat.jpg'); /* Path to your image */
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.2; /* Adjust opacity as needed */
+  z-index: -1; /* Push the background behind other content */
+}
+
+h3 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h4 {
+  color: #555;
+  margin-top: 30px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Change the font for topics */
+  font-weight: bold; /* Bold font for topics */
+}
+
+p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.contact {
+  margin-top: 40px;
+}
+
+.contact-email {
+  color: #007bff;
+}
+
+/* Styling specific to topics */
+h4 {
+  border-bottom: 2px solid #ff7f00; /* Orange line color */
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+h4:first-child {
+  margin-top: 0;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+/* Add style for category  */
+.btn-content{
+  display: inline-block;
+  text-decoration: none;
+  font-size: 18px;
+  border: none;
+  padding: 1px;
+  color: black;
+
+}
+.btn-content:hover{
+  color: orange;
+}
+
+/* Add style for university  */
+
+.btn-university{
+  display: inline-block;
+  text-decoration: none;
+  font-size: 18px;
+  border: none;
+  padding: 1px;
+  color: black;
+
+}
+.btn-content:hover{
+  color: orange;
 }
