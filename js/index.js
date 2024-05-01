@@ -10,10 +10,13 @@ const add_new_post_link = document.querySelector('a#add-new-post-link')
 const modal_window = document.querySelector('div#modal')
 const close_span = document.querySelector('span.close')
 
+/* display add new post link if user is logged in */
+
 if (user.isLoggedIn) {
   add_new_post_link.style.display = "block"
 }
 
+/* render post article */
 const render_post_article = (post) => {
   const post_article = posts_div.appendChild(document.createElement('article'))
   post_article.setAttribute('data-key',post.id.toString())
@@ -29,6 +32,7 @@ const render_post_article = (post) => {
   if (user.isLoggedIn) render_comment_field(post_article,post)
 }
 
+/* render post image */
 const render_post_image = (parent_element,post) => {
   const img = parent_element.appendChild(document.createElement('img'))
   img.setAttribute('class','card-img-top post-image')
@@ -36,6 +40,7 @@ const render_post_image = (parent_element,post) => {
   img.src = BACKEND_URL + '/images/' + post.image
 }
 
+/* render post title */
 const render_post_title = (parent_element, post) => {
   const postTitle = document.createElement('h3');
   postTitle.className = 'card-title';
@@ -46,6 +51,7 @@ const render_post_title = (parent_element, post) => {
   parent_element.appendChild(postTitle);
 };
 
+/* render post by */
 const render_post_by = (parent_element,post) => {
   const author_p = parent_element.appendChild(document.createElement('p'))
   author_p.innerHTML = `by ${post.author} ${post.formattedDate}`
@@ -62,6 +68,7 @@ const render_post_span = (parent_element,post) => {
   render_post_link(post_span,post)
 }
 
+  /* render post link for delete button */
 const render_post_link = (parent_element, post) => {
   const post_a = document.createElement('a');
   post_a.id = 'delete-post-button';
@@ -95,7 +102,7 @@ const render_post_link = (parent_element, post) => {
   parent_element.appendChild(post_a);
 };
 
-
+/* render comment count */
 const render_commentcount = (parent_element,post) => {
   const comment_p = parent_element.appendChild(document.createElement('p'))
   comment_p.setAttribute('id','comment' + post.id)
@@ -106,6 +113,7 @@ const render_commentcount = (parent_element,post) => {
   })
 }
 
+/* render comments */
 const render_comments = (post) => {
   const comments_ul = document.querySelector('ul#comment-list')
   comments_ul.innerHTML = ""
@@ -120,6 +128,7 @@ const render_comments = (post) => {
   })
 }
 
+/* render comment field */
 const render_comment_field =(parent_element,post) => {
   const comment_textarea = parent_element.appendChild(document.createElement('textarea'))
   comment_textarea.addEventListener('keypress',(event) => {

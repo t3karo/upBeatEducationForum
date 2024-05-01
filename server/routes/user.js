@@ -6,6 +6,7 @@ require('dotenv').config()
 
 const userRouter = express.Router()
 
+/* login */
 userRouter.post("/login",async(req,res) => {
   try {
     const sql = "select * from account where email=$1"
@@ -43,6 +44,7 @@ userRouter.post("/login",async(req,res) => {
   }
 })
 
+/* register */
 userRouter.post("/register",async(req,res) => {
     bcrypt.hash(req.body.password,10,async (err,hash) => {
       if (!err) {

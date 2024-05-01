@@ -19,8 +19,6 @@ document.querySelector('button#save-button').addEventListener('click',(event) =>
   formData.append('account_id',user.id)
   formData.append('image',file_input.files ? file_input.files[0] : null)
 
-  //const json = JSON.stringify({title: title,message: message,account_id:user.id})
-
   if (title!=='' && message!=='') {
     posts.addPost(formData,user.token).then(post => {
       window.location.href="index.html"

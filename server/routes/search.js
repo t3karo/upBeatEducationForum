@@ -4,6 +4,7 @@ const pool = require('../helpers/db.js');
 
 const search = express.Router();
 
+/* search posts */
 search.get('/', async (req, res) => {  
     try {
         const searchQuery = req.query.query;
