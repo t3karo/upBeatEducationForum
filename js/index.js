@@ -10,10 +10,13 @@ const add_new_post_link = document.querySelector('a#add-new-post-link')
 const modal_window = document.querySelector('div#modal')
 const close_span = document.querySelector('span.close')
 
+/* display add new post link if user is logged in */
+
 if (user.isLoggedIn) {
   add_new_post_link.style.display = "block"
 }
 
+/* render post article */
 const render_post_article = (post) => {
   const post_article = posts_div.appendChild(document.createElement('article'))
   post_article.setAttribute('data-key',post.id.toString())
@@ -29,6 +32,7 @@ const render_post_article = (post) => {
   if (user.isLoggedIn) render_comment_field(post_article,post)
 }
 
+/* render post image */
 const render_post_image = (parent_element,post) => {
   const img = parent_element.appendChild(document.createElement('img'))
   img.setAttribute('class','card-img-top post-image')
@@ -36,22 +40,18 @@ const render_post_image = (parent_element,post) => {
   img.src = BACKEND_URL + '/images/' + post.image
 }
 
-// const render_post_title = (parent_element,post) => {
-//   const post_title = parent_element.appendChild(document.createElement('h3'))
-//   post_title.setAttribute('class','card-title')
-//   post_title.innerHTML = post.title
-// }
-
+/* render post title */
 const render_post_title = (parent_element, post) => {
   const postTitle = document.createElement('h3');
   postTitle.className = 'card-title';
   const link = document.createElement('a');
-  link.href = `post.html?id=${post.id}`; // Link to a new page with a query parameter
+  link.href = `post.html?id=${post.id}`; 
   link.textContent = post.title;
   postTitle.appendChild(link);
   parent_element.appendChild(postTitle);
 };
 
+/* render post by */
 const render_post_by = (parent_element,post) => {
   const author_p = parent_element.appendChild(document.createElement('p'))
   author_p.innerHTML = `by ${post.author} ${post.formattedDate}`
@@ -68,21 +68,45 @@ const render_post_span = (parent_element,post) => {
   render_post_link(post_span,post)
 }
 
-const render_post_link = (parent_element,post) => {
-  const post_a = parent_element.appendChild(document.createElement('a'))
-  post_a.innerHTML = '<i class="bi bi-trash"></i>'
-  post_a.addEventListener('click',(event) => {
-    posts.removePost(post.id,user.token).then(removed_id => {
-      const article_to_remove = document.querySelector(`[data-key='${removed_id}']`)
+  /* render post link for delete button */
+const render_post_link = (parent_element, post) => {
+  const post_a = document.createElement('a');
+  post_a.id = 'delete-post-button';
+  post_a.style.display = 'none';
+
+  const icon = document.createElement('i');
+  icon.className = 'bi bi-trash';
+
+  const text = document.createTextNode(' Delete post');
+
+  post_a.appendChild(icon); 
+  post_a.appendChild(text); 
+
+  post_a.addEventListener('click', (event) => {
+    event.preventDefault(); 
+    const isConfirmed = confirm("Are you sure you want to delete this post?");
+        if (!isConfirmed) {
+            return; 
+        }
+    posts.removePost(post.id, user.token).then(removed_id => {
+      const article_to_remove = document.querySelector(`[data-key='${removed_id}']`);
       if (article_to_remove) {
-        posts_div.removeChild(article_to_remove)
+        posts_div.removeChild(article_to_remove);
       }
     }).catch(error => {
-      alert(error)
-    })
-  })
-}
+      console.error('Error deleting post:', error);
+      alert('Failed to delete post: ' + error.message);
+    });
+  });
 
+  if (user.isLoggedIn) {
+    post_a.style.display = 'block';
+  }
+
+  parent_element.appendChild(post_a);
+};
+
+/* render comment count */
 const render_commentcount = (parent_element,post) => {
   const comment_p = parent_element.appendChild(document.createElement('p'))
   comment_p.setAttribute('id','comment' + post.id)
@@ -93,6 +117,7 @@ const render_commentcount = (parent_element,post) => {
   })
 }
 
+/* render comments */
 const render_comments = (post) => {
   const comments_ul = document.querySelector('ul#comment-list')
   comments_ul.innerHTML = ""
@@ -107,23 +132,52 @@ const render_comments = (post) => {
   })
 }
 
-const render_comment_field =(parent_element,post) => {
-  const comment_textarea = parent_element.appendChild(document.createElement('textarea'))
-  comment_textarea.addEventListener('keypress',(event) => {
-    if (event.key === "Enter") {
-      event.preventDefault()
-      const comment_text = comment_textarea.value
+const render_comment_field = (parent_element, post) => {
+  const commentForm = document.createElement('div');
+  commentForm.className = 'comment-form';
 
-      const data = JSON.stringify({comment: comment_text,account_id:user.id,post_id:post.id})
+  const comment_textarea = document.createElement('textarea');
+  comment_textarea.className = 'comment-textarea';
+  comment_textarea.placeholder = 'Enter your comment here...';
+
+  const submitButton = document.createElement('button');
+  submitButton.textContent = 'Submit Comment';
+  submitButton.type = 'button';
+  submitButton.className = 'btn btn-primary';
+
+  commentForm.appendChild(comment_textarea);
+  commentForm.appendChild(submitButton);
+  parent_element.appendChild(commentForm);
+
+  const submitComment = () => {
+      if (comment_textarea.value.trim() === '') {
+          alert('Please enter a comment.');
+          return;
+      }
+      const data = JSON.stringify({
+          comment: comment_textarea.value,
+          account_id: user.id,
+          post_id: post.id
+      });
+
       posts.addComment(data).then(count => {
-        comment_textarea.value = ''
-        document.querySelector('p#comment' + post.id).innerHTML = "Comments " + count
+          comment_textarea.value = '';
+          document.querySelector(`#comment${post.id}`).innerHTML = "Comments " + count;
       }).catch(error => {
-        alert(error)
-      })   
-    }
-  })
+          alert(error);
+      });
+  };
+
+  submitButton.addEventListener('click', submitComment);
+
+  comment_textarea.addEventListener('keypress', (event) => {
+      if (event.key === "Enter" && !event.shiftKey) { 
+          event.preventDefault();
+          submitComment();
+      }
+  });
 }
+
 
 close_span.addEventListener('click',() => {
   modal_window.style.display = 'none'

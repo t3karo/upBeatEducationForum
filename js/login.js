@@ -4,6 +4,7 @@ const user = new User()
 const email_input = document.querySelector('#user-email')
 const password_input = document.querySelector('#password')
 
+/* login button event listener */
 document.querySelector('#login-button').addEventListener('click',(event) => {
   event.preventDefault()
   const email = email_input.value

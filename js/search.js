@@ -11,6 +11,7 @@ document.getElementById('searchForm').addEventListener('submit', function(event)
         .catch(error => console.error('Error fetching search results:', error));
 });
 
+/* display search results */
 function displayResults(results) {
   const resultsDiv = document.getElementById('searchResults');
   

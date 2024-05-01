@@ -7,6 +7,7 @@ const pool = require('../helpers/db.js')
 
 const blogRouter = express.Router()
 
+/* get all posts */
 blogRouter.get("/",async (req,res) => {
   try {
     const sql = `
@@ -46,10 +47,10 @@ blogRouter.post("/new",auth,async(req,res) => {
   }
 })
 
+/* get post by id */
 blogRouter.get('/post/:id', async (req, res) => {
   const { id } = req.params;
   try {
-      // First, fetch the post details along with the author
       const postSql = `
       SELECT post.id, post.title, post.message, post.image_name, post.saved, account.email AS author
       FROM post
@@ -60,7 +61,6 @@ blogRouter.get('/post/:id', async (req, res) => {
       if (postResult.rows.length > 0) {
           const post = postResult.rows[0];
 
-          // Next, fetch comments for the post
           const commentsSql = `
           SELECT comment.id, comment.comment_text, comment.saved, account.email AS author
           FROM comment
@@ -70,7 +70,6 @@ blogRouter.get('/post/:id', async (req, res) => {
           const commentsResult = await pool.query(commentsSql, [id]);
           const comments = commentsResult.rows;
 
-          // Combine post and comments in the response
           res.json({ ...post, comments });
       } else {
           res.status(404).json({ message: 'Post not found' });
@@ -81,17 +80,23 @@ blogRouter.get('/post/:id', async (req, res) => {
   }
 });
 
-blogRouter.delete("/delete/:id",auth,async(req,res) => {
-  const id = Number(req.params.id)
+/* delete post and comment by id */
+blogRouter.delete("/delete/:id", auth, async (req, res) => {
+  const id = Number(req.params.id);
   try {
-    const sql = 'delete from post where id = $1'
-    await query(sql,[id])
-    res.status(200).json({id:id})
+    await pool.query('BEGIN');
+    await pool.query('DELETE FROM comment WHERE post_id = $1', [id]);
+    await pool.query('DELETE FROM post WHERE id = $1', [id]);
+    await pool.query('COMMIT');
+
+    res.status(200).json({ id: id });
   } catch (error) {
-    res.statusMessage = error
-    res.status(500).json({error: error})
+    await pool.query('ROLLBACK');
+
+    res.statusMessage = error;
+    res.status(500).json({ error: error });
   }
-})
+});
 
 blogRouter.get("/comments/:id",async(req,res) => {
   const post_id = Number(req.params.id)
@@ -110,8 +115,6 @@ blogRouter.get("/comments/:id",async(req,res) => {
     res.status(500).json({error: error})
   }
 })
-
-
 
 blogRouter.post("/comment",async(req,res) => {
   try {

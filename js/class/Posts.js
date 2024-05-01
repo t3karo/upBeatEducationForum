@@ -18,22 +18,6 @@ class Posts {
     })
   }
 
-  /* addPost = (data) => {
-    return new Promise(async(resolve, reject)=> {
-      fetch(BACKEND_URL + '/new',{
-        method: 'post',
-        headers: {'Content-Type':'application/json'},
-        body: data
-      })
-      .then(response => response.json())
-      .then(json => {
-        resolve(this.#addToArray(json.id,json.message))
-      }),(error => {
-        reject(error)
-      })
-    })
-  } */
-
   async addPost(formData,token) {
     const response = await fetch(BACKEND_URL + '/new',{
       method: 'post',
