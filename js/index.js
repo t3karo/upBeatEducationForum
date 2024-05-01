@@ -84,6 +84,10 @@ const render_post_link = (parent_element, post) => {
 
   post_a.addEventListener('click', (event) => {
     event.preventDefault(); 
+    const isConfirmed = confirm("Are you sure you want to delete this post?");
+        if (!isConfirmed) {
+            return; 
+        }
     posts.removePost(post.id, user.token).then(removed_id => {
       const article_to_remove = document.querySelector(`[data-key='${removed_id}']`);
       if (article_to_remove) {

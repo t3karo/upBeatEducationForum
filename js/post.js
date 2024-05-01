@@ -78,7 +78,7 @@ function renderCommentForm(container, post) {
     form.className = 'comment-form';
 
     const textarea = document.createElement('textarea');
-    textarea.className = 'form-control';
+    textarea.className = 'comment-form-control';
     textarea.placeholder = 'Add Your Reply Here...';
     form.appendChild(textarea);
 
@@ -106,7 +106,7 @@ function renderCommentForm(container, post) {
 
 /* Submit Comment Functionalities */
 function submitComment(postId, comment) {
-    const textarea = document.querySelector('.form-control'); 
+    const textarea = document.querySelector('.comment-form-control'); 
 
     if (!comment.trim()) {
         console.error('Comment cannot be empty.');
@@ -210,17 +210,23 @@ const render_post_link = (parent_element, post) => {
     const post_a = document.createElement('a');
     post_a.id = 'delete-post-button';
     post_a.style.display = 'none';
-  
+
     const icon = document.createElement('i');
     icon.className = 'bi bi-trash';
-  
+
     const text = document.createTextNode(' Delete post');
-  
-    post_a.appendChild(icon); 
-    post_a.appendChild(text); 
-  
+
+    post_a.appendChild(icon);
+    post_a.appendChild(text);
+
     post_a.addEventListener('click', async (event) => {
-        event.preventDefault(); 
+        event.preventDefault();
+
+        const isConfirmed = confirm("Are you sure you want to delete this post?");
+        if (!isConfirmed) {
+            return; 
+        }
+
         try {
             const removed_id = await posts.removePost(post.id, user.token);
             const article_to_remove = document.querySelector(`[data-key='${removed_id}']`);
@@ -233,10 +239,11 @@ const render_post_link = (parent_element, post) => {
             alert('Failed to delete post: ' + error.message);
         }
     });
-  
+
     if (user.isLoggedIn) {
         post_a.style.display = 'block';
     }
-  
+
     parent_element.appendChild(post_a);
 };
+
