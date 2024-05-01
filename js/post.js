@@ -71,7 +71,7 @@ function displayComments(comments, container) {
     if (comments && comments.length > 0) {
         const commentsLabel = document.createElement('h2');
         commentsLabel.className = 'comments-label';
-        commentsLabel.textContent = 'Comments';
+        commentsLabel.textContent = 'Answers';
         container.appendChild(commentsLabel);
 
         const commentsList = document.createElement('ul');
