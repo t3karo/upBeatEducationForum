@@ -57,26 +57,26 @@ h2 {
   margin: 1em 0;
 }
 
-/* Custom CSS to improve the navbar */
+
 .navbar {
-background-color: var(--dark-color); /* Change background color */
-box-shadow: none; /* Remove box shadow */
+background-color: var(--dark-color); 
+box-shadow: none; 
 }
 
 .navbar-nav .nav-link {
-color: var(--light-color); /* Change link color */
+color: var(--light-color); 
 }
 
 .navbar-nav .nav-link:hover {
-color: #007bff; /* Change link color on hover */
+color: #007bff; 
 }
 
 .navbar-toggler {
-border-color: #343a40; /* Change border color of the toggler */
+border-color: #343a40; 
 }
 
 .navbar-toggler-icon {
-background-color: #343a40; /* Change color of the toggler icon */
+background-color: #343a40; 
 }
 
 /* General styles */
@@ -154,6 +154,27 @@ font-family: sans-serif;
 
 }
 
+/* delete button styles */
+#delete-post-button {
+  color: white; 
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer; 
+  text-align: left;
+  margin: 25px 0;
+  background-color: red;
+  width: 125px;
+  padding: 7px;
+  font-size: 14px;
+  border: 2px solid red;
+  transition: .3s;
+}
+
+#delete-post-button:hover {
+  color: red;
+  background-color: white;
+}
+
 /* Search Results Styles */
 #searchResults a{
   text-decoration: none;
@@ -167,6 +188,7 @@ font-family: sans-serif;
 .card-link+.card-link{
   margin-left: 0;
 }
+
 /* Footer styles */
 
 footer {
@@ -324,11 +346,10 @@ display: inline;
 /* Media query for small screens */
 @media (max-width: 800px) {
   .sidebar {
-      width: 100%; /* Occupy full width */
-      border-right: none; /* Remove border */
+      width: 100%; 
+      border-right: none; 
   }
-}
-
+} 
 
 /* Contact us Css style */
 
@@ -458,7 +479,7 @@ display: inline;
 }
 
 .container {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
   background-color: #f7f7f7;
