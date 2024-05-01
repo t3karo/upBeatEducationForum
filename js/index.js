@@ -129,23 +129,70 @@ const render_comments = (post) => {
 }
 
 /* render comment field */
-const render_comment_field =(parent_element,post) => {
-  const comment_textarea = parent_element.appendChild(document.createElement('textarea'))
-  comment_textarea.addEventListener('keypress',(event) => {
-    if (event.key === "Enter") {
-      event.preventDefault()
-      const comment_text = comment_textarea.value
+// const render_comment_field =(parent_element,post) => {
+//   const comment_textarea = parent_element.appendChild(document.createElement('textarea'))
+//   comment_textarea.addEventListener('keypress',(event) => {
+//     if (event.key === "Enter") {
+//       event.preventDefault()
+//       const comment_text = comment_textarea.value
 
-      const data = JSON.stringify({comment: comment_text,account_id:user.id,post_id:post.id})
+//       const data = JSON.stringify({comment: comment_text,account_id:user.id,post_id:post.id})
+//       posts.addComment(data).then(count => {
+//         comment_textarea.value = ''
+//         document.querySelector('p#comment' + post.id).innerHTML = "Comments " + count
+//       }).catch(error => {
+//         alert(error)
+//       })   
+//     }
+//   })
+// }
+
+const render_comment_field = (parent_element, post) => {
+  const commentForm = document.createElement('div');
+  commentForm.className = 'comment-form';
+
+  const comment_textarea = document.createElement('textarea');
+  comment_textarea.className = 'comment-textarea';
+  comment_textarea.placeholder = 'Enter your comment here...';
+
+  const submitButton = document.createElement('button');
+  submitButton.textContent = 'Submit Comment';
+  submitButton.type = 'button';
+  submitButton.className = 'btn btn-primary';
+
+  commentForm.appendChild(comment_textarea);
+  commentForm.appendChild(submitButton);
+  parent_element.appendChild(commentForm);
+
+  const submitComment = () => {
+      if (comment_textarea.value.trim() === '') {
+          alert('Please enter a comment.');
+          return;
+      }
+      const data = JSON.stringify({
+          comment: comment_textarea.value,
+          account_id: user.id,
+          post_id: post.id
+      });
+
       posts.addComment(data).then(count => {
-        comment_textarea.value = ''
-        document.querySelector('p#comment' + post.id).innerHTML = "Comments " + count
+          comment_textarea.value = '';
+          document.querySelector(`#comment${post.id}`).innerHTML = "Comments " + count;
       }).catch(error => {
-        alert(error)
-      })   
-    }
-  })
+          alert(error);
+      });
+  };
+
+  submitButton.addEventListener('click', submitComment);
+
+  comment_textarea.addEventListener('keypress', (event) => {
+      if (event.key === "Enter" && !event.shiftKey) { 
+          event.preventDefault();
+          submitComment();
+      }
+  });
 }
+
 
 close_span.addEventListener('click',() => {
   modal_window.style.display = 'none'
