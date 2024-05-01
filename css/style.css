@@ -192,30 +192,40 @@ font-family: sans-serif;
 /* Footer styles */
 
 footer {
-background-color: #343a40; 
-color: #fff; 
-padding: 20px; 
-}
+  color: #fff; /* Set text color */
+  padding: 20px; /* Add padding */
+  background-color: var(--dark-color);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  }
 
 footer p {
-margin: 0; 
-}
+  margin: 0;
+  color: var(--light-color) ;
+  }
+  
+  footer ul {
+  list-style-type: none; /* Remove default list style */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+  }
+  
+  footer ul li {
+  display: inline; /* Display list items inline */
 
-footer ul {
-list-style-type: none; 
-padding: 0; 
-margin: 0; 
-}
-
-footer ul li {
-display: inline; 
-margin-right: 10px; 
-}
-
-footer ul li a {
-color: #fff; 
-text-decoration: none; 
-}
+  }
+  
+  footer ul li a {
+  color: #fff; /* Set link color */
+  text-decoration: none; /* Remove underline */
+  }
+  
+  #add-new-post-link{
+  display: inline;
+  }
 
 #add-new-post-link{
 display: inline;
