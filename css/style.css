@@ -337,6 +337,39 @@ display: inline;
     color: #000;
   }
  
+/* Styles for comments in single post */
+.comments-label{
+  font-size: 1.6em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.comments-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.comment-item {
+  margin-bottom: 10px;
+  padding: 1em;
+  background-color: #f9f9f9; /* Light grey background */
+  border: 1px solid #ccc; /* Light grey border */
+}
+
+.comment-text {
+  font-size: 16px;
+  color: #333; /* Dark grey text color */
+}
+
+.comment-author {
+  font-size: 12px;
+  color: #666; /* Medium grey text color */
+  margin-top: 5px; /* Space between comment text and author name */
+  text-align: left; /* Align author to the right */
+}
+
+
+
  /* CSS for sidebar */
 .sidebar {
   background-color: #a7a5a6; /* Change background color */

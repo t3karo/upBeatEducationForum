@@ -70,13 +70,26 @@ function displayPostDetails(post) {
 function displayComments(comments, container) {
     if (comments && comments.length > 0) {
         const commentsLabel = document.createElement('h2');
-        commentsLabel.textContent = 'Comments';
+        commentsLabel.className = 'comments-label';
+        commentsLabel.textContent = 'Answers';
         container.appendChild(commentsLabel);
 
         const commentsList = document.createElement('ul');
+        commentsList.className = 'comments-list';
         comments.forEach(comment => {
             const commentItem = document.createElement('li');
-            commentItem.textContent = `${comment.comment_text} - by ${comment.author}`;
+            commentItem.className = 'comment-item';
+
+            const commentText = document.createElement('p');
+            commentText.className = 'comment-text';
+            commentText.textContent = comment.comment_text;
+
+            const commentAuthor = document.createElement('p');
+            commentAuthor.className = 'comment-author';
+            commentAuthor.textContent = `by ${comment.author}`;
+
+            commentItem.appendChild(commentText);
+            commentItem.appendChild(commentAuthor);
             commentsList.appendChild(commentItem);
         });
         container.appendChild(commentsList);
