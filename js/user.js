@@ -19,3 +19,12 @@ if (user.isLoggedIn) {
 } else {
     hide_register.style.display = 'inline-block';
 }
+
+const hide_deletes = document.querySelectorAll('delete-post-button');
+hide_deletes.forEach(hide_delete => {
+  if (user.isLoggedIn) {
+    hide_delete.style.display = 'block';
+  } else {
+    hide_delete.style.display = 'none';
+  }
+});

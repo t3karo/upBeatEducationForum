@@ -78,17 +78,22 @@ blogRouter.get('/post/:id', async (req, res) => {
   }
 });
 
-blogRouter.delete("/delete/:id",auth,async(req,res) => {
-  const id = Number(req.params.id)
+blogRouter.delete("/delete/:id", auth, async (req, res) => {
+  const id = Number(req.params.id);
   try {
-    const sql = 'delete from post where id = $1'
-    await query(sql,[id])
-    res.status(200).json({id:id})
+    await pool.query('BEGIN');
+    await pool.query('DELETE FROM comment WHERE post_id = $1', [id]);
+    await pool.query('DELETE FROM post WHERE id = $1', [id]);
+    await pool.query('COMMIT');
+
+    res.status(200).json({ id: id });
   } catch (error) {
-    res.statusMessage = error
-    res.status(500).json({error: error})
+    await pool.query('ROLLBACK');
+
+    res.statusMessage = error;
+    res.status(500).json({ error: error });
   }
-})
+});
 
 blogRouter.get("/comments/:id",async(req,res) => {
   const post_id = Number(req.params.id)

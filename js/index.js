@@ -36,12 +36,6 @@ const render_post_image = (parent_element,post) => {
   img.src = BACKEND_URL + '/images/' + post.image
 }
 
-// const render_post_title = (parent_element,post) => {
-//   const post_title = parent_element.appendChild(document.createElement('h3'))
-//   post_title.setAttribute('class','card-title')
-//   post_title.innerHTML = post.title
-// }
-
 const render_post_title = (parent_element, post) => {
   const postTitle = document.createElement('h3');
   postTitle.className = 'card-title';
@@ -68,20 +62,39 @@ const render_post_span = (parent_element,post) => {
   render_post_link(post_span,post)
 }
 
-const render_post_link = (parent_element,post) => {
-  const post_a = parent_element.appendChild(document.createElement('a'))
-  post_a.innerHTML = '<i class="bi bi-trash"></i>'
-  post_a.addEventListener('click',(event) => {
-    posts.removePost(post.id,user.token).then(removed_id => {
-      const article_to_remove = document.querySelector(`[data-key='${removed_id}']`)
+const render_post_link = (parent_element, post) => {
+  const post_a = document.createElement('a');
+  post_a.id = 'delete-post-button';
+  post_a.style.display = 'none';
+
+  const icon = document.createElement('i');
+  icon.className = 'bi bi-trash';
+
+  const text = document.createTextNode(' Delete post');
+
+  post_a.appendChild(icon); 
+  post_a.appendChild(text); 
+
+  post_a.addEventListener('click', (event) => {
+    event.preventDefault(); 
+    posts.removePost(post.id, user.token).then(removed_id => {
+      const article_to_remove = document.querySelector(`[data-key='${removed_id}']`);
       if (article_to_remove) {
-        posts_div.removeChild(article_to_remove)
+        posts_div.removeChild(article_to_remove);
       }
     }).catch(error => {
-      alert(error)
-    })
-  })
-}
+      console.error('Error deleting post:', error);
+      alert('Failed to delete post: ' + error.message);
+    });
+  });
+
+  if (user.isLoggedIn) {
+    post_a.style.display = 'block';
+  }
+
+  parent_element.appendChild(post_a);
+};
+
 
 const render_commentcount = (parent_element,post) => {
   const comment_p = parent_element.appendChild(document.createElement('p'))
