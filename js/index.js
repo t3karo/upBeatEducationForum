@@ -128,25 +128,6 @@ const render_comments = (post) => {
   })
 }
 
-/* render comment field */
-// const render_comment_field =(parent_element,post) => {
-//   const comment_textarea = parent_element.appendChild(document.createElement('textarea'))
-//   comment_textarea.addEventListener('keypress',(event) => {
-//     if (event.key === "Enter") {
-//       event.preventDefault()
-//       const comment_text = comment_textarea.value
-
-//       const data = JSON.stringify({comment: comment_text,account_id:user.id,post_id:post.id})
-//       posts.addComment(data).then(count => {
-//         comment_textarea.value = ''
-//         document.querySelector('p#comment' + post.id).innerHTML = "Comments " + count
-//       }).catch(error => {
-//         alert(error)
-//       })   
-//     }
-//   })
-// }
-
 const render_comment_field = (parent_element, post) => {
   const commentForm = document.createElement('div');
   commentForm.className = 'comment-form';
