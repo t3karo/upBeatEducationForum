@@ -365,7 +365,7 @@ display: inline;
   }
 
 /* Styles for Comment box in single post */
-.form-control{
+.comment-form-control{
   width: 100%;
   height: 100px;
   margin-bottom: 10px;
