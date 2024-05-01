@@ -7,6 +7,7 @@ import { User } from './class/User.js'
 const user = new User()
 const posts = new Posts()
 
+
 document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const postId = urlParams.get('id');
@@ -36,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 });
 
+/* display Post Content */
 function displayPostDetails(post) {
     const postDetailDiv = document.getElementById('postDetail');
     postDetailDiv.innerHTML = ''; 
@@ -67,6 +69,7 @@ function displayPostDetails(post) {
     displayComments(post.comments, postDetailDiv);
 }
 
+/* display Comments */
 function displayComments(comments, container) {
     if (comments && comments.length > 0) {
         const commentsLabel = document.createElement('h2');
@@ -100,6 +103,7 @@ function displayComments(comments, container) {
     }
 }
 
+/* display delete button */
 const render_post_link = (parent_element, post) => {
     const post_a = document.createElement('a');
     post_a.id = 'delete-post-button';

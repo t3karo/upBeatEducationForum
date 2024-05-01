@@ -7,6 +7,7 @@ const pool = require('../helpers/db.js')
 
 const blogRouter = express.Router()
 
+/* get all posts */
 blogRouter.get("/",async (req,res) => {
   try {
     const sql = `
@@ -46,6 +47,7 @@ blogRouter.post("/new",auth,async(req,res) => {
   }
 })
 
+/* get post by id */
 blogRouter.get('/post/:id', async (req, res) => {
   const { id } = req.params;
   try {
@@ -78,6 +80,7 @@ blogRouter.get('/post/:id', async (req, res) => {
   }
 });
 
+/* delete post and comment by id */
 blogRouter.delete("/delete/:id", auth, async (req, res) => {
   const id = Number(req.params.id);
   try {
@@ -112,8 +115,6 @@ blogRouter.get("/comments/:id",async(req,res) => {
     res.status(500).json({error: error})
   }
 })
-
-
 
 blogRouter.post("/comment",async(req,res) => {
   try {
