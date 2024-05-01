@@ -368,7 +368,13 @@ display: inline;
   text-align: left; /* Align author to the right */
 }
 
-
+/* forgot password reset link button */
+.send-reset-link{
+  padding: 10px;
+  border-radius: 5px;
+  background-color: var(--dark-color);
+  color: var(--light-color);
+}
 
  /* CSS for sidebar */
 .sidebar {
